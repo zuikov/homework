@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Arguments</title>
+</head>
+<body>
+
+    <script>
+    // The GCD algorithm was coosed as a part of this algorithm.
+    // It can deal with array of data.
+    var arr = [];
+
+    arr.push(+prompt( "Введите первое число", '' ));
+    arr.push(+prompt( "Введите второе число", '' ));
+ // arr.push(+prompt( "Введите третье число", '' ));
+
+    function lcd(array)
+    {   
+        let  n = array.length,
+        a = Math.abs(array[0]);
+
+        for (let i = 1; i < n; i++) {
+           let b = Math.abs(array[i]),
+           c = a;
+           while (a && b){ a > b ? a %= b : b %= a; } 
+           a = Math.abs(c*array[i])/(a+b);
+       }
+       return a;
+   }
+
+
+   alert ('Наименьший общий знаменатель(Lowest Common Denominator) '+ lcd(arr) );
+</script>
+
+</body>
+</html>

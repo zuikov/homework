@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Arguments</title>
+</head>
+<body>
+
+  <script>
+// The Euclidean algorithm was coosed due to efficiency of it.
+// It can deal with array of data.
+
+var arr = [];
+
+arr.push(+prompt( "Введите первое число", '' ));
+arr.push(+prompt( "Введите второе число", '' ));
+arr.push(+prompt( "Введите третье число", '' ));
+
+function gcd(array)
+{   
+  let n = array.length,
+  x = Math.abs(array[0]);
+
+  for (var i = 1; i < n; i++) {
+    let y = Math.abs(array[i]);
+    while (x && y){ x > y ? x %= y : y %= x; }
+    x += y;
+  };
+  return x;
+};
+
+alert ('Наибольший общий делитель(Greatest Common Divisor) '+ gcd(arr) );
+</script>
+
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Arguments</title>
+</head>
+<body>
+
+	<script>
+	// 	factorial for zero and  positive integers
+	//  by iterative approach
+		var index = +prompt ( 'Назначьте целое положительное число', '' );
+
+		alert (factorial( index ));
+
+		function factorial ( n ) {
+
+			let current = 1;
+
+			if ( !n ) return 0;
+
+			for (let i = 1; i <= n; i++) {
+
+				current *= i; 
+			};
+
+			return current;
+		};
+
+	</script>
+
+</body>
+</html>

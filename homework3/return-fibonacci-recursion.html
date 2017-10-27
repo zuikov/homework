@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Arguments</title>
+</head>
+<body>
+
+  <script>
+//  fibonacci for negative integers, zero and  positive integers
+//  by recursion approach
+
+let index = +prompt ( 'Назначте целое число', '' );
+
+function fibo (ind) {
+
+  let current = 0;
+
+  if ( ind >= 3 ) {
+    return current = fibo( ind -1 ) + fibo( ind -2 );
+  } else {
+    return 1; 
+  };
+
+};
+
+function initialConditions (initial) {  
+
+  if ( initial < 0 ) {
+    return -fibo(-initial);
+  } else if ( !initial ) {
+    return 0;
+  } else {
+    return fibo(initial);
+  };
+
+};
+
+alert( initialConditions( index ) );
+</script>
+
+</body>
+</html>
