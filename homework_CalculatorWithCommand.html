@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    body {
+  width: 505px;
+  margin: 4% auto;
+  font-family: 'Source Sans Pro', sans-serif;
+  letter-spacing: 5px;
+  font-size: 1.8rem;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+}
+
+.calculator {
+  background-color: rgba(239, 242, 243, 0.157);
+  height: 450px;
+  padding: 20px;
+  -webkit-box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.2);
+  border-radius: 1px;
+}
+
+.input {
+  border: 1px solid #ddd;
+  border-radius: 1px;
+  height: 60px;
+  padding-right: 15px;
+  padding-top: 10px;
+  text-align: right;
+  margin-right: 6px;
+  font-size: 2.5rem;
+  overflow-x: auto;
+  transition: all .2s ease-in-out;
+}
+
+.input:hover {
+  border: 1px solid #bbb;
+  -webkit-box-shadow: inset 0px 1px 4px 0px rgba(0, 0, 0, 0.2);
+  box-shadow: inset 0px 1px 4px 0px rgba(0, 0, 0, 0.2);
+}
+
+.operators div {
+  display: inline-block;
+  border: 1px solid #bbb;
+  border-radius: 1px;
+  width: 80px;
+  text-align: center;
+  padding: 10px;
+  margin: 20px 4px 10px 0;
+  cursor: pointer;
+  background-color: #ddd;
+  transition: border-color .2s ease-in-out, background-color .2s, box-shadow .2s;
+}
+
+.operators div:hover {
+  background-color: #ddd;
+  -webkit-box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.2);
+  border-color: #aaa;
+}
+
+.operators div:active {
+  font-weight: bold;
+}
+
+.leftPanel {
+  width: 345px;
+  float: left;
+}
+
+.numbers div {
+  display: inline-block;
+  border: 1px solid #ddd;
+  border-radius: 1px;
+  width: 80px;
+  text-align: center;
+  padding: 10px;
+  margin: 10px 4px 10px 0;
+  cursor: pointer;
+  background-color: #f9f9f9;
+  transition: border-color .2s ease-in-out, background-color .2s, box-shadow .2s;
+}
+
+.numbers div:hover {
+  background-color: #f1f1f1;
+  -webkit-box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.2);
+  border-color: #bbb;
+}
+
+.numbers div:active {
+  font-weight: bold;
+}
+
+div.equal {
+  width: 80px;
+  display: block;
+  border: 1px solid rgb(195, 199, 206);
+  border-radius: 1px;
+  text-align: center;
+  padding: 70px 10px;
+  margin: 10px 6px 10px 0;
+  vertical-align: top;
+  cursor: pointer;
+  color: rgb(3, 3, 3);
+  background-color: #cccdcf83;
+  transition: all .2s ease-in-out;
+  float: right;
+}
+
+div.equal:hover {
+  background-color: rgb(190, 190, 190);
+  -webkit-box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.2);
+  border-color: rgb(162, 163, 162);
+}
+
+div.equal:active {
+  font-weight: bold;
+}
+
+div.stepBack {
+  display: block;
+  border: 1px solid rgb(195, 199, 206);
+  border-radius: 1px;
+  width: 17%;
+  text-align: center;
+  padding: 25px 10px;
+  margin: 10px 6px 10px 0;
+  vertical-align: top;
+  cursor: pointer;
+  color: rgb(3, 3, 3);
+  background-color: #cccdcf83;
+  transition: all .2s ease-in-out;
+  float: right;
+}
+
+div.stepBack:hover {
+  background-color: rgb(190, 190, 190);
+  -webkit-box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.2);
+  border-color: rgb(162, 163, 162);
+}
+
+div.stepBack:active {
+  font-weight: bold;
+}
+    </style>
+</head>
+
+<body>
+    <div class="calculator">
+        <div class="input" id="input"></div>
+        <div class="buttons">
+            <div class="operators">
+                <div>+</div>
+                <div>-</div>
+                <div>&times;</div>
+                <div>&divide;</div>
+            </div>
+            <div class="leftPanel">
+                <div class="numbers">
+                    <div>7</div>
+                    <div>8</div>
+                    <div>9</div>
+                </div>
+                <div class="numbers">
+                    <div>4</div>
+                    <div>5</div>
+                    <div>6</div>
+                </div>
+                <div class="numbers">
+                    <div>1</div>
+                    <div>2</div>
+                    <div>3</div>
+                </div>
+                <div class="numbers">
+                    <div>0</div>
+                    <div>.</div>
+                    <div id="clear">C</div>
+                </div>
+            </div>
+            <div class="equal" id="result">=</div>
+            <div class="stepBack" id="undo">undo</div>
+        </div>
+    </div>
+
+    <script>
+        /* Сделать Calculator с методом undo.
+Что-бы была верстка, был инпут, кнопки +, - и т.д, кнопка undo.
+*/
+
+"use strict";
+
+(() => {
+        function add(a, b) { return a + b; }
+        function subtraction(a, b) { return a - b; }
+        function multiplication(a, b) { return a * b; }
+        function division(a, b) { return a / b; }
+
+        class Command {
+            constructor(execute, undo, value) {
+                this.execute = execute;
+                this.undo = undo;
+                this.value = value;
+            }
+        }
+
+        class AddCommand {
+            constructor(value) {
+                return new Command(add, subtraction, value);
+            }
+        }
+
+        class SubtractionCommand {
+            constructor(value) {
+                return new Command(subtraction, add, value);
+            }
+        }
+
+        class MultiplicationCommand {
+            constructor(value) {
+                return new Command(multiplication, division, value);
+            }
+        }
+
+        class DivisionCommand {
+            constructor(value) {
+                return new Command(division, multiplication, value);
+            }
+        }
+
+        class Calculator {
+            constructor() {
+                this._current = 0;
+                this._commands = [];
+            }
+
+            execute(command) {
+                this._current = command.execute(this._current, command.value);
+                this._commands.push(command);
+            }
+
+            undo(arr) {
+                // const command = this._commands.pop();
+                // this._currentSum = command.undo(this._currentSum, command.value);
+                if (arr.length) {
+                  input.innerHTML = arr.pop(arr[arr.length - 1]);  
+                };
+            }
+
+            getCurrentValue() {
+                return this._current;
+            }
+        }
+
+        let instance = new Calculator();
+
+
+// Присваиваем узлы DOM в javascript-переменные  
+var input = document.getElementById('input'), // input/output button
+    number = document.querySelectorAll('.numbers div'), // number buttons
+    operator = document.querySelectorAll('.operators div'), // operator buttons
+    result = document.getElementById('result'), // equal button
+    undo = document.getElementById('undo'), // undo button
+    clear = document.getElementById('clear'), // clear button
+    resultDisplayed = false; // flag to keep an eye on what output is displayed
+
+    var undoString = [];
+    
+//-------------------------------------------------------------------------------------------------------
+// здесь логика ввода чисел
+  // adding click handlers to number buttons
+  for (var i = 0; i < number.length; i++) {
+    number[i].addEventListener("click", function (e) {
+
+      // storing current input string and its last character in variables - used later
+      var currentString = input.innerHTML;
+      var lastChar = currentString[currentString.length - 1];
+
+      // if result is not diplayed, just keep adding
+      if (resultDisplayed === false) {
+        input.innerHTML += e.target.innerHTML;
+      } else if (resultDisplayed === true &&
+        lastChar === "+" ||
+        lastChar === "-" ||
+        lastChar === "×" ||
+        lastChar === "÷") {
+        // if result is currently displayed and user pressed an operator
+        // we need to keep on adding to the string for next operation
+        resultDisplayed = false;
+        input.innerHTML += e.target.innerHTML;
+      } else {
+        // if result is currently displayed and user pressed a number
+        // we need clear the input string and add the new input to start the new opration
+        resultDisplayed = false;
+        input.innerHTML = "";
+        input.innerHTML += e.target.innerHTML;
+      }
+    });
+  }
+
+//-------------------------------------------------------------------------------------------------------
+// здесь логика ввода операторов
+  // adding click handlers to operator buttons
+  for (var i = 0; i < operator.length; i++) {
+    operator[i].addEventListener("click", function (e) {
+
+      // storing current input string and its last character in variables - used later
+      var currentString = input.innerHTML;
+      var lastChar = currentString[currentString.length - 1];
+
+      // if last character entered is an operator, replace it with the currently pressed one
+      if (lastChar === "+" ||
+        lastChar === "-" ||
+        lastChar === "×" ||
+        lastChar === "÷") {
+        var newString = currentString.substring(0, currentString.length - 1) + e.target.innerHTML;
+        input.innerHTML = newString;
+      } else if (currentString.length == 0) {
+        // if first key pressed is an opearator, don't do anything
+        console.log("enter a number first");
+      } else {
+        // else just add the operator pressed to the input
+        input.innerHTML += e.target.innerHTML;
+      }
+
+    });
+  }
+
+//---------------------------------------------------------------------------------------------------------
+// логика отмены арифметических операций
+  // on click of 'undo' button
+  undo.addEventListener("click", function () {
+    
+    instance.undo(undoString);
+    resultDisplayed = true; // turning flag if result is displayed
+  });
+
+
+//---------------------------------------------------------------------------------------------------------
+// логика выполнения арифметических операций
+  // on click of 'equal' button
+  result.addEventListener("click", function () {
+
+    // this is the string that we will be processing eg. -10+26+33-56*34/23
+    var inputString = input.innerHTML;
+
+    undoString.push(inputString);
+
+    // forming an array of numbers. eg for above string it will be: numbers = ["10", "26", "33", "56", "34", "23"]
+    var numbers = inputString.split(/\+|\-|\×|\÷/g);
+
+    // forming an array of operators. for above string it will be: operators = ["+", "+", "-", "*", "/"]
+    // first we replace all the numbers and dot with empty string and then split
+    var operators = inputString.replace(/[0-9]|\./g, "").split("");
+
+    // now we are looping through the array and doing one operation at a time.
+    // first divide, then multiply, then subtraction and then addition
+    // as we move we are alterning the original numbers and operators array
+    // the final element remaining in the array will be the output
+
+    var divide = operators.indexOf("÷");
+    while (divide != -1) {
+      instance.execute(new AddCommand(numbers[divide]));
+      instance.execute(new DivisionCommand(numbers[divide + 1]));
+      numbers.splice(divide, 2, instance.getCurrentValue());
+      operators.splice(divide, 1);
+      divide = operators.indexOf("÷");
+      instance._currentSum += instance._current;
+      instance._current = 0;
+    }
+
+    var multiply = operators.indexOf("×");
+    while (multiply != -1) {
+      instance.execute(new AddCommand(numbers[multiply]));
+      instance.execute(new MultiplicationCommand(numbers[multiply + 1]));
+      numbers.splice(multiply, 2, instance.getCurrentValue());
+      operators.splice(multiply, 1);
+      multiply = operators.indexOf("×");
+      instance._currentSum += instance._current;
+      instance._current = 0;
+    }
+
+    var subtract = operators.indexOf("-");
+    while (subtract != -1) {
+      instance.execute(new AddCommand(numbers[subtract]));
+      instance.execute(new SubtractionCommand(numbers[subtract + 1]));
+      numbers.splice(subtract, 2, instance.getCurrentValue());
+      operators.splice(subtract, 1);
+      subtract = operators.indexOf("-");
+      instance._currentSum += instance._current;
+      instance._current = 0;
+    }
+
+    var add = operators.indexOf("+");
+    while (add != -1) {
+      // using parseFloat is necessary, otherwise it will result in string concatenation :)
+      instance.execute(new AddCommand(parseFloat(numbers[add])));
+      instance.execute(new AddCommand(parseFloat(numbers[add + 1])));
+      numbers.splice(add, 2, instance.getCurrentValue());
+      operators.splice(add, 1);
+      add = operators.indexOf("+");
+      instance._currentSum += instance._current;
+      instance._current = 0;    
+    }
+
+    input.innerHTML = numbers[0]; // displaying the output
+
+    resultDisplayed = true; // turning flag if result is displayed
+
+    return undoString;
+  });
+  
+//-------------------------------------------------------------------------------------------
+  // clearing the input on press of clear
+  clear.addEventListener("click", function () {
+    input.innerHTML = "";
+  })
+})();
+   
+    </script>
+</body>
+</html>
