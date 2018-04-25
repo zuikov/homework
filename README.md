@@ -1,1 +1,1 @@
-This is my homework
+JS + CSS only
