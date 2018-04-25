@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+  <meta charset='UTF-8'>
+  <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+  <meta http-equiv='X-UA-Compatible' content='ie=edge'>
+  <title>Timer</title>
+  <link rel='stylesheet' href='css/style.css'>
+  <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
+</head>
+
+<body>
+  <!-- There is a timer -->
+  <div id='clock'>
+    <div id='timer'>01:10</div>
+  </div>
+
+  <!-- There is a form -->
+  <div id='controlPanel'>
+    <form name='setTimer'>
+      <input type='text' autocomplete="off" name='minutes' size='1' maxlength='2'
+       value='01' class='timeInput'>
+      <p class='colon'>:</p>
+      <input type='text' autocomplete="off" name='seconds' size='1' maxlength='2'
+       value='10' class='timeInput'>
+      <p class='note'>MINUTES and SECONDS setting</p>
+      <button name='startButton' class='timeControl'>Start the timer</button>
+      <button name='pauseButton' class='timeControl'>Pause the timer</button>
+      <button name='resetButton' class='timeControl'>Reset the timer</button>
+    </form>
+  </div>
+
+  <script src='build/timerES6.js'></script>
+</body>
+
+</html>

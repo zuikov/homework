@@ -1,0 +1,83 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    background: white;
+    padding-top:1em;
+    font-size:2em;
+	text-align:center;
+	background: url(../images/countdown-timer.png) top no-repeat;
+  }
+
+#clock {
+	width:10.0em;
+	height:10.0em;
+	position:relative;
+  	left:50%;
+	margin-left:-5em;
+}
+
+#timer {
+	width: 60%;
+	height: 26%;
+	font-size:220%;
+	color: grey;
+	position: absolute;
+	top:37%;
+	left:20%;
+}
+
+.dash {
+	width:0.28em;
+	height:0.75em;
+	background:grey;
+	position: absolute;
+	left:50%;
+}
+
+#controlPanel {
+	width:5.0em;
+	height:10.0em;
+	position:relative;
+  	left:50%;
+	margin-left:-2.5em;
+}
+
+.timeInput {
+	font-family: 'Roboto', sans-serif;
+    display:inline-block;
+    height:1em;
+    width:1.5em;
+	font-size:0.8em;
+    text-align:center;
+}
+
+.timeControl {
+	font-family: 'Roboto', sans-serif;
+	height:2em;
+    width:9em;
+	font-size:0.5em;
+    text-align:center;
+}
+
+.timeControl:hover {
+  background-color: #ddd;
+  -webkit-box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.2);
+  box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.2);
+  border-color: #aaa;
+}
+
+.timeControl:active {
+	font-weight: bold;
+}
+
+.colon {
+	display:inline-block;
+	font-size:0.8em;
+	margin: 0.8em 0 0 0;
+}
+
+.note {
+	font-size:0.36em;
+	margin: 0 0;
+	color: red;
+}
+
